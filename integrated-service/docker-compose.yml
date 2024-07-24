@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  integratedapi:
+    build: .
+    image: integratedapi:latest
+    container_name: integratedapi
+    ports:
+      - "8000:8000"
+    environment:
+      MONGO_HOST: mongo
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:
