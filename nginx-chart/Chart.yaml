@@ -1,0 +1,5 @@
+# nginx-chart/Chart.yaml
+apiVersion: v2
+name: nginx-chart
+description: A Helm chart for Nginx
+version: 0.1.0
